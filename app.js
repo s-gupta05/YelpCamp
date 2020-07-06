@@ -57,7 +57,8 @@ app.set("view engine", "ejs")
 // seedDB(); 
 
 /////----Start the server----/////
-app.listen(3000, () => { 
-	console.log("YelpCamp server started...");
+var port = process.env.PORT || 3000;
+app.listen(port, () => { 
+	console.log("YelpCamp server started. Listening to port " + port);
 });
 
