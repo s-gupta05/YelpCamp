@@ -1,0 +1,28 @@
+html {
+	min-height: 100%;
+}
+
+body {
+	background-color: #000;
+	min-height: 100vh;
+}
+
+.thumbnail {
+	padding: 0;
+}
+
+.thumbnail img {
+	width: 100%;
+}
+
+.thumbnail .caption-full {
+	padding: 20px;
+}
+
+.delete-form {
+	display: inline;
+}
+
+.lead {
+	color: #919191;
+}
