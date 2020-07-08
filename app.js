@@ -8,20 +8,28 @@ var express					= require("express")
 	,localStrategy			= require("passport-local")
 	,passportLocalMongoose	= require("passport-local-mongoose")
 	,methodOverride			= require("method-override")
-	// routes declaration
+	// files declaration
 	,CG						= require("./models/cg")
 	,Comment				= require("./models/comment")
 	,User					= require("./models/user")
 	,campgroundRoutes		= require("./routes/campgrounds")
 	,commentRoutes			= require("./routes/comments")
-	,indexRoutes			= require("./routes/index");
+	,indexRoutes			= require("./routes/index")
+	,authInfo				= require("./authInfo")
+	//value declaration
+	,user					= authInfo.user
+	,password				= authInfo.password
+	,dbName					= "yelpcamp"
+	,mongooseConnectString	= "mongodb+srv://" + user + ":" + password + "@cluster0.60qyb.mongodb.net/" + dbName + "?retryWrites=true&w=majority";
 //	,seedDB					= require("./seeds");
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useFindAndModify', false);
 
-mongoose.connect("mongodb://localhost/yelpcamp"); //yelpcamp here is the db name. If it does not exist, it will get created
+// mongoose.connect("mongodb://localhost/yelpcamp"); //yelpcamp here is the db name. If it does not exist, it will get created
+// mongoose.connect(mongooseConnectString);
+mongoose.connect("mongodb+srv://snehaDB:newMong0DBid@cluster0.60qyb.mongodb.net/yelpcamp?retryWrites=true&w=majority");
 
 app.use(bp.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public")); //"dirname" refers to the directory path in which the app.js script will run
