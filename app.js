@@ -29,7 +29,8 @@ mongoose.set('useFindAndModify', false);
 
 // mongoose.connect("mongodb://localhost/yelpcamp"); //yelpcamp here is the db name. If it does not exist, it will get created
 // mongoose.connect(mongooseConnectString);
-mongoose.connect("mongodb+srv://snehaDB:newMong0DBid@cluster0.60qyb.mongodb.net/yelpcamp?retryWrites=true&w=majority");
+// mongoose.connect("mongodb+srv://snehaDB:newMong0DBid@cluster0.60qyb.mongodb.net/yelpcamp?retryWrites=true&w=majority");
+mongoose.connect(process.env.DB);
 
 app.use(bp.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public")); //"dirname" refers to the directory path in which the app.js script will run
